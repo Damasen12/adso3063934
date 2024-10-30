@@ -2,134 +2,95 @@
 <html lang="en">
 
 <head>
-    <!-- Meta etiquetas para definir el tipo de documento y la codificación de caracteres -->
     <meta charset="UTF-8">
-    <!-- Etiqueta para hacer la página responsiva en dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título de la página que aparece en la pestaña del navegador -->
     <title>ADSO 3063934</title>
     <style>
-        /* 
-        1. Estilos del cuerpo de la página. 
-        - Se aplica lo primero, afecta a todo el documento.
-        - Aquí configuramos el fondo, el diseño, el color del texto y la tipografía.
-        */
         body {
-            color: white; /* Texto en blanco */
-            display: flex; /* Establece un diseño flexible */
-            flex-direction: column; /* Coloca los elementos (h1, figure, h2) en columnas, uno debajo del otro */
-            justify-content: center; /* Centra los elementos verticalmente */
-            align-items: center; /* Centra los elementos horizontalmente */
-            /* Fondo con gradiente radial (círculo) con colores oscuros simulando el espacio */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             background: radial-gradient(circle at 50% 50%, rgba(9, 27, 56, 1) 0%, rgba(17, 38, 84, 1) 80%, rgba(0, 0, 0, 1) 100%);
-            min-height: 100vh; /* La altura mínima es 100% del viewport */
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Tipografía */
-            overflow: hidden; /* Oculta todo contenido que desborde el viewport */
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
         }
 
-        /* 
-        2. Estilo del título principal <h1>. 
-        - Esto afecta al texto "ADSO 3063934". 
-        - Se aplica después de los estilos generales del cuerpo.
-        */
         h1 {
-            /* Sombra azul intensa alrededor del texto */
             box-shadow: 0px 0px 15px 20px #0077ff;
-            /* Bordes estilo "ridge" (relieve) */
             border-style: solid ridge solid;
-            /* Gradiente lineal de colores para el fondo del texto */
             background: linear-gradient(90deg, rgba(33, 85, 123, 1) 14%, rgba(45, 117, 154, 1) 46%, rgba(0, 212, 255, 1) 100%);
-            font-size: 3.4rem; /* Tamaño del texto */
-            padding: 0.5rem 2rem; /* Relleno interno del texto */
-            z-index: 1; /* Posición en la pila: lo hace aparecer sobre otros elementos */
-            position: relative; /* Para poder ajustar la posición en el eje Z */
+            font-size: 3.4rem;
+            padding: 0.5rem 2rem;
+            z-index: 1;
+            position: relative;
         }
 
-        /* 
-        3. Estilo de la figura <figure> (el emoji 🐻). 
-        - Aparece después del <h1> en el documento.
-        - Aquí damos forma y animación a la figura.
-        */
         figure {
-            margin-top: 2rem; /* Margen superior para separarlo del <h1> */
-            margin: 0; /* Elimina otros márgenes (ajuste de seguridad) */
-            border-radius: 50%; /* Lo hace circular */
-            /* Gradiente de colores azulados */
+            margin-top: 2rem;
+            margin: 0;
+            border-radius: 50%;
             background: linear-gradient(90deg, rgba(70, 150, 255, 1) 10%, rgba(33, 55, 123, 1) 50%, rgba(0, 212, 255, 1) 100%);
-            /* Sombra alrededor de la figura */
             box-shadow: 0px 0px 10px 5px #00aaff;
-            width: 100px; /* Anchura de la figura */
-            height: 100px; /* Altura de la figura */
-            display: flex; /* Flexbox para alinear el emoji dentro de la figura */
-            justify-content: center; /* Centra el emoji horizontalmente */
-            align-items: center; /* Centra el emoji verticalmente */
-            font-size: 5rem; /* Tamaño del emoji 🐻 */
-            /* Transición para suavizar el efecto cuando cambie su tamaño y rotación */
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Asegura que la imagen se ajuste dentro de la figura circular */
             transition: transform 0.5s ease-in-out;
-            z-index: 2; /* Lo coloca encima de otros elementos */
+            z-index: 2;
         }
 
-        /* 
-        4. Animación cuando el cursor pasa sobre la figura (hover).
-        - Este estilo se ejecuta cuando el usuario pasa el mouse por encima del <figure>.
-        - Depende de la configuración previa de `figure`.
-        */
+        figure img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
         figure:hover {
-            /* Al pasar el cursor, la figura rota 360 grados y aumenta ligeramente de tamaño */
             transform: rotate(360deg) scale(1.2);
         }
 
-        /* 
-        5. Estilo del subtítulo <h2>. 
-        - Esto afecta el texto "Sebastian Osorno Bonilla".
-        - Se aplica después del <figure>.
-        */
         h2 {
-            font-size: 2.5rem; /* Tamaño del texto */
-            margin: 1rem 0 0 0; /* Espaciado entre el subtítulo y la figura */
-            z-index: 1; /* Lo coloca sobre el fondo */
+            font-size: 2.5rem;
+            margin: 1rem 0 0 0;
+            z-index: 1;
         }
 
-        /* 
-        6. Animación de estrellas en el fondo. 
-        - Esto se ejecuta en el fondo del <body>, simula estrellas en movimiento.
-        */
         @keyframes twinkling {
             0% {
-                background-position: 0 0; /* Posición inicial del fondo */
+                background-position: 0 0;
             }
             100% {
-                background-position: -10000px 5000px; /* Movimiento a lo largo del tiempo */
+                background-position: -10000px 5000px;
             }
         }
 
-        /* 
-        7. Aplicación de las estrellas en el fondo. 
-        - Se ejecuta en el fondo del cuerpo (<body>).
-        - Cubre toda la pantalla detrás de otros elementos. 
-        - Depende de la animación @keyframes 'twinkling'.
-        */
         body::before {
-            content: ""; /* Un pseudoelemento vacío que crea el fondo estrellado */
-            position: absolute; /* Posición absoluta en relación con el viewport */
-            top: 0; /* Empieza desde el borde superior */
-            left: 0; /* Empieza desde el borde izquierdo */
-            right: 0; /* Se extiende hasta el borde derecho */
-            bottom: 0; /* Se extiende hasta el borde inferior */
-            /* Imagen de textura de estrellas, repetida por todo el fondo */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-            z-index: 0; /* Coloca este fondo detrás de otros elementos */
-            opacity: 0.3; /* Lo hace parcialmente transparente */
-            animation: twinkling 100s linear infinite; /* Aplica la animación 'twinkling' de las estrellas */
+            z-index: 0;
+            opacity: 0.3;
+            animation: twinkling 100s linear infinite;
         }
     </style>
 </head>
 
 <body>
-    <!-- Contenido del cuerpo de la página -->
-    <h1>ADSO 3063934</h1> <!-- Título principal -->
-    <figure>🐻</figure> <!-- Figura circular con el emoji de oso -->
-    <h2>Sebastian Osorno Bonilla</h2> <!-- Subtítulo -->
+    <h1>ADSO 3063934</h1>
+    <figure>
+        <!-- Imagen de avatar, reemplaza al emoji -->
+        <img src="img/avatar.png" alt="Avatar de Sebastian">
+    </figure>
+    <h2>Sebastian Osorno Bonilla</h2>
 </body>
 
 </html>
