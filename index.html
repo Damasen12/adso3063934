@@ -2,80 +2,131 @@
 <html lang="en">
 
 <head>
+    <!-- Definición de la codificación y configuración responsiva -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADSO 3063934</title>
     <style>
+        /* Configuración del fondo, diseño y tipografía del cuerpo */
         body {
-            color: white;
+            color: white; /* Texto en blanco */
+            display: flex; /* Flex para diseño en columnas */
+            flex-direction: column; /* Los elementos del body se organizan en columna */
+            justify-content: flex-start; /* Alineación hacia la parte superior */
+            align-items: center; /* Centrado horizontal */
+            background: radial-gradient(circle at 50% 50%, rgba(9, 27, 56, 1) 0%, rgba(17, 38, 84, 1) 80%, rgba(0, 0, 0, 1) 100%);
+            min-height: 100vh; /* La altura mínima del body es la altura del viewport */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow-y: auto; /* Permite el desplazamiento vertical */
+        }
+
+        /* Estilo para la barra superior con el título ADSO */
+        .header {
+            width: 90%; /* La barra ocupa el 90% del ancho de la pantalla */
+            max-width: 1200px; /* La barra no se expandirá más allá de 1200px en pantallas grandes */
+            padding: 1rem 0; /* Relleno superior e inferior de 1rem para dar espacio al contenido */
+            background-color: #0e1726; /* Fondo sólido de la barra */
+            color: #ffffff; /* Color del texto en blanco */
+            font-size: 2rem; /* Tamaño de fuente grande para el título */
+            text-align: center; /* Texto centrado dentro de la barra */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            box-shadow: 0px 0px 20px 5px rgba(0, 170, 255, 0.5); /* Sombra luminosa alrededor de la barra */
+            border: 5px solid #00aaff; /* Borde de 5px de grosor alrededor de toda la barra */
+            border-radius: 10px; /* Esquinas redondeadas para suavizar los bordes */
+            position: relative; /* Fija la barra en la parte superior de la pantalla */
+            top: 50px; /* Separa la barra 50px del borde superior de la pantalla */
+            left: 50%; /* Centra la barra en la mitad de la pantalla horizontalmente */
+            transform: translateX(-50%); /* Ajuste adicional para centrar la barra en pantallas grandes */
+            z-index: 10; /* Asegura que la barra quede por encima de otros elementos */
+        }
+
+        /* Espacio para el contenido después de la barra fija */
+        .content {
+            margin-top: 8rem; /* Espacio suficiente para evitar el solapamiento con la barra */
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at 50% 50%, rgba(9, 27, 56, 1) 0%, rgba(17, 38, 84, 1) 80%, rgba(0, 0, 0, 1) 100%);
-            min-height: 100vh;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            overflow: hidden;
+            width: 100%; /* Asegura que el contenido ocupe el ancho total */
+            padding-bottom: 2rem; /* Espacio adicional al final del contenido */
         }
 
-        h1 {
-            box-shadow: 0px 0px 15px 20px #0077ff;
-            border-style: solid ridge solid;
-            background: linear-gradient(90deg, rgba(33, 85, 123, 1) 14%, rgba(45, 117, 154, 1) 46%, rgba(0, 212, 255, 1) 100%);
-            font-size: 3.4rem;
-            padding: 0.5rem 2rem;
-            z-index: 1;
-            position: relative;
-        }
-
-        figure {
+        /* Estilo de la foto de perfil centrada */
+        .profile-pic {
             margin-top: 2rem;
-            margin: 0;
-            border-radius: 50%;
+            border-radius: 50%; /* Bordes redondeados */
             background: linear-gradient(90deg, rgba(70, 150, 255, 1) 10%, rgba(33, 55, 123, 1) 50%, rgba(0, 212, 255, 1) 100%);
-            box-shadow: 0px 0px 10px 5px #00aaff;
-            width: 100px;
-            height: 100px;
+            box-shadow: 0px 0px 20px 8px #00aaff; /* Sombra alrededor */
+            width: 150px; /* Tamaño ajustado */
+            height: 150px;
+            overflow: hidden; /* Asegura que la imagen se ajuste al contorno circular */
+            transition: transform 0.5s ease-in-out; /* Animación suave en hover */
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden; /* Asegura que la imagen se ajuste dentro de la figura circular */
-            transition: transform 0.5s ease-in-out;
-            z-index: 2;
         }
 
-        figure img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
+        /* Configuración de la imagen dentro de la foto de perfil */
+        .profile-pic img {
+            width: 100%; /* Abarca el contenedor */
+            height: 100%; /* Abarca el contenedor */
+            border-radius: 50%; /* Forma circular */
         }
 
-        figure:hover {
-            transform: rotate(360deg) scale(1.2);
+        /* Efecto de rotación y escalado en hover */
+        .profile-pic:hover {
+            transform: rotate(360deg) scale(1.1);
         }
 
-        h2 {
-            font-size: 2.5rem;
-            margin: 1rem 0 0 0;
-            z-index: 1;
+        /* Estilo del nombre debajo de la foto de perfil */
+        .name {
+            font-size: 2.2rem;
+            margin-top: 1rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra en el texto */
         }
 
+        /* Estilo de las columnas para los datos personales */
+        .info-columns {
+            display: flex;
+            gap: 2rem; /* Espacio entre columnas */
+            margin-top: 2rem;
+            width: 80%; /* Ancho ajustado */
+            justify-content: center; /* Centra las columnas */
+        }
+
+        /* Cada columna de información personal */
+        .column {
+            background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente */
+            padding: 1.5rem;
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+            flex: 1; /* Abarca el espacio restante */
+            text-align: justify;
+        }
+
+        .column-tittle {
+            text-align: center;
+        }
+
+        .column-info {
+            text-align: center;
+        }
+
+        .column-status {
+            text-align: center;
+            background-color: #0e1726;
+        }
+
+        /* Estilos de fondo animado de estrellas */
         @keyframes twinkling {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: -10000px 5000px;
-            }
+            0% { background-position: 0 0; }
+            100% { background-position: -10000px 5000px; }
         }
 
         body::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
             z-index: 0;
             opacity: 0.3;
@@ -85,12 +136,49 @@
 </head>
 
 <body>
-    <h1>ADSO 3063934</h1>
-    <figure>
-        <!-- Imagen de avatar, reemplaza al emoji -->
-        <img src="img/avatar.png" alt="Avatar de Sebastian">
-    </figure>
-    <h2>Sebastian Osorno Bonilla</h2>
+    <!-- Barra superior fija con el título ADSO -->
+    <header class="header">Análisis y Desarrollo de Software (ADSO) 3063934</header>
+
+    <!-- Contenido principal, espaciado después de la barra superior -->
+    <div class="content">
+        <!-- Foto de perfil central -->
+        <div class="profile-pic">
+            <img src="img/avatar.png" alt="Avatar de Sebastian">
+        </div>
+
+        <!-- Nombre de usuario debajo de la foto de perfil -->
+        <h2 class="name">Sebastian Osorno Bonilla</h2>
+
+        <!-- Sección de columnas para información personal -->
+        <div class="info-columns">
+            <!-- Columna de información personal 1 -->
+            <div class="column">
+                <h3 class="column-tittle">Información Personal</h3>
+                <p>Edad: 28 años</p>
+                <p>Dirección: Calle 108 35a 20 p1</p>
+                <p>Teléfono: +57 3117376002</p>
+            </div>
+
+            <!-- Columna de información personal 2 -->
+            <div class="column">
+                <h3 class="column-tittle">Formación Académica</h3>
+                <p>Título: Tecnólogo en Gestión de la Producción Industrial (GPI)</p>
+                <p class="column-status">Culminado en el 2019</p>
+                <p>Título: Tecnólogo en Análisis y Desarrollo de Software (ADSO)</p>
+                <p class="column-status">En Curso</p>
+                <p class="column-info">Institución: SENA</p>
+                <p class="column-info">Año: 2024</p>
+            </div>
+
+            <!-- Columna de información personal 3 -->
+            <div class="column">
+                <h3 class="column-tittle">Experiencia</h3>
+                <p>Desarrollador Junior en XYZ Corp.</p>
+                <p>Freelancer en Desarrollo Web</p>
+                <p>Asistente de Soporte Técnico</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
