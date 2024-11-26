@@ -254,7 +254,7 @@ body.emmet {
     menu {
         a:is(:link, :visited)
         {
-            color: #0dd33f; span{
+            color: #0a3d08; span{
                 background-color: #0dd33f;
             }
         }
