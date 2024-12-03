@@ -255,7 +255,7 @@ padding: 10px 10px 20px 10px;
 }
 
 body.emmet {
-    menu {
+    menu { 
         a:is(:link, :visited)
         {
             color: #0a3d08; span{
